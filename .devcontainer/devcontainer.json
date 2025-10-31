@@ -13,7 +13,7 @@
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
         "streetsidesoftware.code-spell-checker",
-        "ms-vscode.vscode-typescript-tslint-plugin"  // Typescript ready.
+        "vscode-icons-team.vscode-icons"
       ],
       "settings": {
         "editor.formatOnSave": true,
@@ -28,7 +28,6 @@
     3000
   ],
   "containerEnv": {
-    // optional: override env vars for dev
     "NODE_ENV": "development"
   }
 }
