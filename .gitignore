@@ -5,3 +5,7 @@
 
 ### - For development purposes
 /Legacy
+
+### - To avoid ANY potential chances that the Discord token is published.
+.env
+env

@@ -1,0 +1,34 @@
+{
+  "name": "NAF Discord bot",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20-bullseye",  // Node 20 LTS example
+  "features": {
+    // If you want Docker CLI inside the container (for running e.g. Mongo locally)
+    "ghcr.io/devcontainers/features/docker-in-docker:1": {
+      "variant": "docker-cli"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "streetsidesoftware.code-spell-checker",
+        "ms-vscode.vscode-typescript-tslint-plugin"  // Typescript ready.
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "eslint.alwaysShowStatus": true
+      }
+    }
+  },
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "postCreateCommand": "npm install",
+  "forwardPorts": [
+    3000
+  ],
+  "containerEnv": {
+    // optional: override env vars for dev
+    "NODE_ENV": "development"
+  }
+}
