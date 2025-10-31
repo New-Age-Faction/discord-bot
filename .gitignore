@@ -1,0 +1,7 @@
+###########################################################
+# Ignored files / extensions.
+# Anything that's generated should never be commited
+###########################################################
+
+### - For development purposes
+/Legacy
