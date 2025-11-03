@@ -10,6 +10,7 @@
 // - Imports ------------------------------------------------------------------
 import { Client, GatewayIntentBits, Collection, Events } from "discord.js";
 import { loadCommands } from "./loadCommands.js";
+import { deployCommands } from "./deploy.js";
 
 // - Functions ----------------------------------------------------------------
 export async function registerCommands(client) {

@@ -6,6 +6,7 @@
 import { Client, IntentsBitField } from "discord.js";
 import { registerEvents } from "./events/index.js";
 import { registerCommands } from "./commands/index.js";
+import { deployCommands } from "./commands/deploy.js";
 
 // - Constants ----------------------------------------------------------------
 export const client = new Client({
@@ -32,4 +33,5 @@ export async function startBot() {
 
   console.log("BOT: Logging in");
   await client.login(process.env.token);
+  await deployCommands(client);
 }
