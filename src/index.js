@@ -6,7 +6,7 @@
 
 // - Imports --------------------------------------------------------------------
 import { startBot } from "./bot/client.js";
-import { startServer } from "./server/index.js";
+//import { startServer } from "./server/index.js";
 import dotenv from "dotenv";
 
 // Load the config for all the services handled by this bot.
@@ -15,7 +15,7 @@ dotenv.config();
 (async () => {
   try {
     await startBot();
-    await startServer();
+    //await startServer();
     console.log("Services booted");
   } catch (err) {
     console.error("Failed to start services:", err);

@@ -1,20 +1,20 @@
 /*
-    The goal of this file is to subscribe your custom events to the various
-    publishers provided by the discord's client.
+    The goal of this file is to subscribe overwrite the collection of commands
+    of the discord client, by your own collection, loaded from the commands
+    folder.
 
     The client is the publisher, your functions are subscribers.
     Google design pattern: Observer.
 */
 
 // - Imports ------------------------------------------------------------------
-import ready from "./ready.js";
-import interactionCreate from "./interactionCreate.js";
-import messageCreate from "./messageCreate.js";
+import { Client, GatewayIntentBits, Collection, Events } from "discord.js";
+import { loadCommands } from "./loadCommands.js";
 
 // - Functions ----------------------------------------------------------------
-export function registerEvents(client) {
-    console.log("BOT: Registering events")
-    client.once("ready", ready);
-    client.on("interactionCreate", interactionCreate);
-    client.on("messageCreate", messageCreate);
+export async function registerCommands(client) {
+  const commands = await loadCommands();
+
+  console.log("BOT: registering the commands.");
+  client.commands = new Collection(commands);
 }

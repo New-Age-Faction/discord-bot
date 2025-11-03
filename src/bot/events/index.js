@@ -7,14 +7,14 @@
 */
 
 // - Imports ------------------------------------------------------------------
-import ready from "./ready.js";
-import interactionCreate from "./interactionCreate.js";
-import messageCreate from "./messageCreate.js";
+//import ready from "./ready.js";
+//import interactionCreate from "./interactionCreate.js";
+//import messageCreate from "./messageCreate.js";
 
 // - Functions ----------------------------------------------------------------
 export function registerEvents(client) {
-    console.log("BOT: Registering events")
-    client.once("ready", ready);
-    client.on("interactionCreate", interactionCreate);
-    client.on("messageCreate", messageCreate);
+  console.log("BOT: Registering events");
+  //client.once("ready", ready);
+  //client.on("interactionCreate", interactionCreate);
+  //client.on("messageCreate", messageCreate);
 }
