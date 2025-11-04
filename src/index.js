@@ -5,7 +5,7 @@
 */
 
 // - Imports --------------------------------------------------------------------
-import { startBot } from "./bot/client.js";
+import { DiscordBot } from "./bot/client.js";
 //import { startServer } from "./server/index.js";
 import dotenv from "dotenv";
 
@@ -14,8 +14,9 @@ dotenv.config();
 
 (async () => {
   try {
-    await startBot();
-    //await startServer();
+    const discordBot = new DiscordBot();
+    discordBot.start();
+
     console.log("Services booted");
   } catch (err) {
     console.error("Failed to start services:", err);

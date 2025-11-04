@@ -8,15 +8,17 @@
 
 // - Imports ------------------------------------------------------------------
 import { onClientReady } from "./onClientReady.js";
-//import interactionCreate from "./interactionCreate.js";
-//import messageCreate from "./messageCreate.js";
+import { onInteractionCreate } from "./onInteractionCreate.js";
 
 // - Functions ----------------------------------------------------------------
-export function registerEvents(client) {
+export function registerEvents(discordClient) {
   console.log("BOT: Registering events");
-  client.once("clientReady", () => {
-    onClientReady(client);
+  discordClient.client.once("clientReady", () => {
+    onClientReady(discordClient);
+    discordClient.onClientReady();
   });
-  //client.on("interactionCreate", interactionCreate);
+  discordClient.client.on("interactionCreate", async (interaction) => {
+    onInteractionCreate(discordClient, interaction);
+  });
   //client.on("messageCreate", messageCreate);
 }

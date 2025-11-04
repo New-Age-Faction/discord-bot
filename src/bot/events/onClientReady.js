@@ -1,8 +1,4 @@
-import { leaveUnauthorizedGuilds } from "../utils/leaveUnauthorizedGuilds.js";
-
-export function onClientReady(client) {
+export function onClientReady(discordClient) {
   console.log("BOT: OnReady");
-
-  console.log("BOT: Leaving unauthorized guilds");
-  leaveUnauthorizedGuilds(client);
+  // Custom logic if ever you need it.
 }

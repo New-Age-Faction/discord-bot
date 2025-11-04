@@ -8,14 +8,13 @@
 */
 
 // - Imports ------------------------------------------------------------------
-import { Client, GatewayIntentBits, Collection, Events } from "discord.js";
+import { Collection } from "discord.js";
 import { loadCommands } from "./loadCommands.js";
-import { deployCommands } from "./deploy.js";
 
 // - Functions ----------------------------------------------------------------
-export async function registerCommands(client) {
+export async function registerCommands(discordClient) {
   const commands = await loadCommands();
 
   console.log("BOT: registering the commands.");
-  client.commands = new Collection(commands);
+  discordClient.commands = new Collection(commands);
 }
