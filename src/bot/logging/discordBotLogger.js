@@ -5,9 +5,16 @@
   won't have to set it up again.
 */
 
+import { Embed } from "discord.js";
+import { EventIcons } from "./embeds/eventImages.js";
 import { ServiceIcons } from "./embeds/serviceImages.js";
-import { EmbedServiceLaunched } from "./embeds/servicesEvents.js";
+import {
+  EmbedError,
+  EmbedServiceCriticalNotice,
+  EmbedServiceLaunched,
+} from "./embeds/servicesEvents.js";
 import { Logger } from "./logger.js";
+import { EmbedColors } from "./embeds/colors.js";
 
 // - Imports ------------------------------------------------------------------
 

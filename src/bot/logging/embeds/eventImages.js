@@ -8,4 +8,5 @@
 
 export const EventIcons = {
   launch: "https://cdn-icons-png.flaticon.com/512/7944/7944483.png",
+  critical: "https://cdn-icons-png.flaticon.com/512/9356/9356599.png",
 };

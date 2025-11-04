@@ -111,7 +111,6 @@ export class DiscordBot {
    * be accessed at any time.
    */
   registerEnvironment() {
-    this.allowedGuilds = process.env.ALLOWED_GUILDS.split(",");
     this.token = process.env.token;
     this.appID = process.env.clientID;
     this.deploymentServerID = process.env.guildID;
@@ -121,12 +120,8 @@ export class DiscordBot {
     //);
 
     console.log("BOT: Fetching private log chat channel ID");
-    //this.privateLogsChannelID = this.client.channels.cache.get(
-    //  getSetting("logID")
-    //);
-    this.privateLogsChannelID = "1422699553051643908";
+    this.privateLogsChannelID = process.env.log_channel_id;
 
-    console.log("BOT:\tAllowed Guilds: ", this.allowedGuilds);
     console.log("BOT:\tappID: ", this.appID);
     console.log("BOT:\tserverID: ", this.deploymentServerID);
   }
@@ -145,27 +140,7 @@ export class DiscordBot {
     this.logger = new DiscordBotLogger(this);
     await this.logger.started();
 
-    this.leaveUnauthorizedGuilds();
     this.deployCommands();
-  }
-
-  /**
-   * # PRIVATE
-   * Leaves any guilds the discord bot is not allowed to be within.
-   */
-  async leaveUnauthorizedGuilds() {
-    console.log("BOT: Leaving unauthorized guilds");
-    this.client.guilds.cache.forEach((guild) => {
-      if (!this.allowedGuilds.includes(guild.id)) {
-        console.log(
-          `BOT: Leaving unauthorized guild on startup: ${guild.name} (${guild.id})`
-        );
-        logID.send(
-          `Leaving unauthorized guild on startup: ${guild.name} (${guild.id})`
-        );
-        guild.leave();
-      }
-    });
   }
 
   /**

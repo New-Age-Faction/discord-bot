@@ -64,6 +64,52 @@ export async function EmbedServiceLaunched(serviceName, iconURL) {
       iconURL: iconURL,
     })
     .setThumbnail(EventIcons.launch);
-  console.log(embed);
+  return embed;
+}
+
+/**
+ * Builds a small error embed. A title and a description.
+ * Can serve as a base to build more complete embeds.
+ * Sets color. No footer or image.
+ * @param {*} serviceName
+ * @param {*} iconURL
+ * @param {*} title
+ * @param {*} description
+ * @returns
+ */
+export async function EmbedError(title, description, serviceName, iconURL) {
+  const embed = new EmbedBuilder()
+    .setTitle(title)
+    .setDescription(message)
+    .setColor(EmbedColors.ERROR)
+    .setTimestamp()
+    .setFooter({
+      text: serviceName,
+      iconURL: iconURL,
+    });
+  return embed;
+}
+
+/**
+ * Prebuilt embed for whenever the services have a critical process
+ * that's super mega important to notice
+ * @param {*} serviceName
+ * @param {*} iconURL
+ * @param {*} title
+ * @param {*} description
+ * @returns
+ */
+export async function EmbedServiceCriticalNotice(
+  serviceName,
+  iconURL,
+  title,
+  description
+) {
+  const embed = await EmbedError(
+    title,
+    description,
+    serviceName,
+    iconURL
+  ).setThumbnail(EventIcons.critical);
   return embed;
 }
