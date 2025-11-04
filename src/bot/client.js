@@ -33,5 +33,5 @@ export async function startBot() {
 
   console.log("BOT: Logging in");
   await client.login(process.env.token);
-  await deployCommands(client);
+  //await deployCommands(client);
 }

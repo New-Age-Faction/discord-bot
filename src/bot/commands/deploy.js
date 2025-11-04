@@ -12,18 +12,18 @@ export async function deployCommands(client) {
 
   try {
     // ⚙️ For development, deploy to one guild (fast updates)
-    //await rest.put(
-    //  Routes.applicationGuildCommands(
-    //    process.env.clientId,
-    //    process.env.guildId
-    //  ),
-    //  { body: commands }
-    //);
+    await rest.put(
+      Routes.applicationGuildCommands(
+        process.env.clientId,
+        process.env.guildId
+      ),
+      { body: commands }
+    );
 
     // 💡 For global commands (slower propagation), use this instead:
-    await rest.put(Routes.applicationCommands(process.env.clientId), {
-      body: commands,
-    });
+    //await rest.put(Routes.applicationCommands(process.env.clientId), {
+    //  body: commands,
+    //});
 
     console.log(`BOT: ✅ Successfully deployed ${commands.length} commands.`);
   } catch (err) {
